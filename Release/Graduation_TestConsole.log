@@ -1,0 +1,9 @@
+﻿  main.cpp
+  PlayerStates.cpp
+  State.cpp
+  stdafx.cpp
+main.obj : error LNK2001: 확인할 수 없는 외부 기호 "public: void __thiscall CStateMachine<int>::ChangeState(int *,class CState<int> *,float,bool)" (?ChangeState@?$CStateMachine@H@@QAEXPAHPAV?$CState@H@@M_N@Z)
+main.obj : error LNK2001: 확인할 수 없는 외부 기호 "public: void __thiscall CStateMachine<int>::Update(int *,float)" (?Update@?$CStateMachine@H@@QAEXPAHM@Z)
+main.obj : error LNK2001: 확인할 수 없는 외부 기호 "public: virtual __thiscall CStateMachine<int>::~CStateMachine<int>(void)" (??1?$CStateMachine@H@@UAE@XZ)
+main.obj : error LNK2001: 확인할 수 없는 외부 기호 "public: __thiscall CStateMachine<int>::CStateMachine<int>(void)" (??0?$CStateMachine@H@@QAE@XZ)
+C:\Users\dlwlg\source\repos\Graduation_TestConsole\Release\Graduation_TestConsole.exe : fatal error LNK1120: 4개의 확인할 수 없는 외부 참조입니다.

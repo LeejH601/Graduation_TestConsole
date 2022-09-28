@@ -1,0 +1,7 @@
+﻿  Locator.cpp
+  PlayerStates.cpp
+  main.cpp
+  코드를 생성하고 있습니다...
+main.obj : error LNK2001: 확인할 수 없는 외부 기호 "private: static class Playerstate_manager CLocator::m_PlayerStateManager" (?m_PlayerStateManager@CLocator@@0VPlayerstate_manager@@A)
+PlayerStates.obj : error LNK2001: 확인할 수 없는 외부 기호 "private: static class Playerstate_manager CLocator::m_PlayerStateManager" (?m_PlayerStateManager@CLocator@@0VPlayerstate_manager@@A)
+C:\Users\dlwlg\source\repos\Graduation_TestConsole\x64\Debug\Graduation_TestConsole.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.
