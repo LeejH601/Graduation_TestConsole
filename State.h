@@ -43,22 +43,9 @@ public:
 	bool HandleMessage(const Telegram& msg) const;
 
 	void ChangeState(Entity* entity, CState<Entity>* pNewState, float fElapsedTime, bool is_popPrevious);
+	void processingKeyEvent(Entity* entity, char* key, float fElapsedTime);
 };
 
-class Player {
-	std::unique_ptr<CStateMachine<Player>> m_pStateMachine;
-
-public:
-	Player() {
-		m_pStateMachine = std::make_unique<CStateMachine<Player>>();
-	};
-
-	void Update() {
-		m_pStateMachine->Update(this, 0.0f);
-	}
-
-	CStateMachine<Player>* Get_FSM() { return m_pStateMachine.get(); };
-};
 
 //class CStateMachine
 //{
@@ -144,4 +131,10 @@ void CStateMachine<Entity>::ChangeState(Entity* entity, CState<Entity>* pNewStat
 
 	m_pStates.top()->Enter(entity, fElapsedTime);
 	return;
+}
+
+template<class Entity>
+inline void CStateMachine<Entity>::processingKeyEvent(Entity* entity, char* key, float fElapsedTime)
+{
+	m_pStates.top();
 }

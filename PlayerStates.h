@@ -1,5 +1,6 @@
 #pragma once
 #include "State.h"
+#include "Player.h"
 
 class IdleState : public CState<Player>
 {

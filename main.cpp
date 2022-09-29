@@ -1,7 +1,9 @@
 #include <Windows.h>
+#include <conio.h>
 #include "stdafx.h"
 #include "PlayerStates.h"
 #include "Locator.h"
+
 
 CLocator Locater;
 
@@ -12,8 +14,14 @@ int main() {
 
 	while (true)
 	{
-		player.Update();
-		//Sleep(1000);
+		if (!_kbhit()) {
+			system("cls");
+			player.Update();
+			Sleep(500);
+		}
+		else {
+			char key = _getch();
+		}
 	}
 
 	return 0;
