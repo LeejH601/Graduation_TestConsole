@@ -16,6 +16,6 @@ public:
 	CStateMachine<Player>* Get_FSM() { return m_pStateMachine.get(); };
 
 	void processingKeyEvent(char key) {
-		m_pStateMachine
+		//m_pStateMachine
 	};
 };
