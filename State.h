@@ -28,7 +28,7 @@ template <class Entity>
 class CStateMachine
 {
 private:
-	std::list<CState<Entity>*> m_pStates;
+	std::stack<CState<Entity>*> m_pStates;
 	std::shared_ptr<CState<Entity>> m_pGlobalState = nullptr;
 
 public:
@@ -81,7 +81,7 @@ CStateMachine<Entity>::~CStateMachine()
 template<class Entity>
 void CStateMachine<Entity>::PushState(CState<Entity>* state)
 {
-	m_pStates.push_front(state);
+	m_pStates.push(state);
 }
 
 template<class Entity>
@@ -94,8 +94,8 @@ template<class Entity>
 CState<Entity>* CStateMachine<Entity>::PopState()
 {
 	if (!m_pStates.empty()) {
-		CState<Entity>* state = m_pStates.front();
-		m_pStates.pop_front();
+		CState<Entity>* state = m_pStates.top();
+		m_pStates.pop();
 		return state;
 	}
 	return nullptr;
@@ -105,7 +105,7 @@ template<class Entity>
 void CStateMachine<Entity>::Update(Entity* entity, float fElapsedTime)
 {
 	if (!m_pStates.empty()) {
-		m_pStates.front()->Execute(entity, fElapsedTime);
+		m_pStates.top()->Execute(entity, fElapsedTime);
 	}
 
 	if (m_pGlobalState) {
@@ -123,18 +123,18 @@ template<class Entity>
 void CStateMachine<Entity>::ChangeState(Entity* entity, CState<Entity>* pNewState, float fElapsedTime, bool is_popPrevious)
 {
 	if (!m_pStates.empty())
-		m_pStates.front()->Exit(entity, fElapsedTime);
+		m_pStates.top()->Exit(entity, fElapsedTime);
 
 	if (is_popPrevious) PopState();
 	if (pNewState)
 		PushState(pNewState);
 
-	m_pStates.front()->Enter(entity, fElapsedTime);
+	m_pStates.top()->Enter(entity, fElapsedTime);
 	return;
 }
 
 template<class Entity>
 inline void CStateMachine<Entity>::processingKeyEvent(Entity* entity, char* key, float fElapsedTime)
 {
-	m_pStates.front();
+	m_pStates.top();
 }
